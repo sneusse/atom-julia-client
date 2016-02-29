@@ -31,7 +31,7 @@
   'ctrl-enter': 'julia-client:evaluate'
   'shift-enter': 'julia-client:evaluate-and-move'
   'ctrl-shift-enter': 'julia-client:evaluate-all'
-  'ctrl-j ctrl-m': 'julia-client:set-working-module'
+  'ctrl-j ctrl-shift-m': 'julia-client:set-working-module'
   'ctrl-shift-c': 'julia-client:interrupt-julia'
   'ctrl-j ctrl-d': 'julia-client:toggle-documentation'
 
@@ -40,7 +40,7 @@
  .platform-linux ink-console.julia,
  .platform-linux ink-console.julia atom-text-editor':
   'ctrl-shift-c': 'julia-client:interrupt-julia'
-  'ctrl-j ctrl-m': 'julia-client:set-working-module'
+  'ctrl-j ctrl-shift-m': 'julia-client:set-working-module'
 
 '.platform-win32 atom-workspace,
  .platform-linux atom-workspace':
@@ -51,3 +51,4 @@
   'ctrl-j ctrl-c': 'julia-client:clear-console'
   'ctrl-j ctrl-l': 'julia-client:reset-loading-indicator'
   'ctrl-j ctrl-k': 'julia-client:kill-julia'
+  'ctrl-j ctrl-m': 'julia-client:goto-symbol'

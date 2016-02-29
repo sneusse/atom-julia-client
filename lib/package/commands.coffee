@@ -37,6 +37,10 @@ module.exports =
           juno.connection.client.rpc('clear-workspace')
       'julia:select-block': =>
         juno.misc.blocks.select()
+      'julia-client:goto-symbol': =>
+        @withInk ->
+          boot()
+          juno.runtime.symbols.gotoSymbol()
 
     @subs.add atom.commands.add '.item-views > atom-text-editor[data-grammar="source julia"],
                                  ink-console.julia',

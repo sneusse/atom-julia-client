@@ -5,6 +5,7 @@ module.exports =
   workspace:  require './runtime/workspace'
   plots:      require './runtime/plots'
   frontend:   require './runtime/frontend'
+  symbols:    require './runtime/symbols'
 
   activate: ->
     @modules.activate()
@@ -15,6 +16,7 @@ module.exports =
 
   consumeInk: (ink) ->
     @evaluation.ink = ink
+    @symbols.ink = ink
     for mod in [@console, @workspace, @plots]
       mod.ink = ink
       mod.activate()
