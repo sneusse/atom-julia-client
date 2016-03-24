@@ -27,14 +27,14 @@ module.exports =
         @withInk ->
           boot()
           juno.runtime.evaluation.evalAll()
+      'julia-client:goto-symbol': =>
+        @withInk ->
+          boot()
+          juno.runtime.evaluation.gotoSymbol()
       'julia-client:toggle-documentation': =>
         @withInk ->
           boot()
-          juno.runtime.evaluation.toggleMeta 'docs'
-      'julia-client:toggle-methods': =>
-        @withInk ->
-          boot()
-          juno.runtime.evaluation.toggleMeta 'methods'
+          juno.runtime.evaluation.toggleDocs()
       'julia-client:reset-workspace': =>
         requireClient ->
           editor = atom.workspace.getActiveTextEditor()
@@ -42,10 +42,6 @@ module.exports =
           juno.connection.client.rpc('clear-workspace')
       'julia:select-block': =>
         juno.misc.blocks.select()
-      'julia-client:goto-symbol': =>
-        @withInk ->
-          boot()
-          juno.runtime.symbols.gotoSymbol()
 
     @subs.add atom.commands.add '.item-views > atom-text-editor[data-grammar="source julia"],
                                  ink-console.julia',

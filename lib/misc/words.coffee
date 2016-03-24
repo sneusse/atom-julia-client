@@ -1,15 +1,11 @@
-{client} =  require '../connection'
-modules = require './modules'
-
 module.exports =
-  gotoSymbol: ->
-    editor = atom.workspace.getActiveTextEditor()
-    mod = modules.current() # TODO: may not work in all cases
-    edpath = editor.getPath() || 'untitled-' + editor.getBuffer().inkId
+  # takes an editor and gets the current word. If that is nonempty, call function
+  # `fn` with arguments `word` and `range`.
+  withWord: (editor, fn) ->
     [word, range] = @getWord editor
     # if we only find numbers or nothing, return prematurely
     if word.length == 0 || !isNaN(word) then return
-    @ink.goto.goto client.rpc("methods", {word: word, mod: mod})
+    fn word, range
 
   # gets the word and its range in the `editor` which the last cursor is on
   getWord: (editor) ->
