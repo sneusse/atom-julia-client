@@ -52,9 +52,7 @@ module.exports =
     @withCurrentContext ({editor, mod}) =>
       words.withWord editor, (word, range) =>
         client.rpc("docs", {word: word, mod: mod}).then (result) =>
-          error = result.type == 'error'
-          view = if error then result.view else result
-          view = views.render view
+          view = views.render result
           views.ink.tree.toggle view unless error
           new @ink.InlineDoc editor, range,
             content: view,
