@@ -52,7 +52,7 @@ module.exports =
   toggleDocs: ->
     @withCurrentContext ({editor, mod}) =>
       words.withWord editor, (word, range) =>
-        @ink.docs.show client.rpc("docs", {word: word, mod: mod})
+        client.rpc("docs", {word: word, mod: mod}) => # see #144
 
   showError: (r, lines) ->
     @errorLines?.lights.destroy()
