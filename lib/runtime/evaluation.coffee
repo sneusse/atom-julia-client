@@ -44,15 +44,21 @@ module.exports =
             }).then (result) ->
         notifications.show "Evaluation Finished"
 
+  withLine: (editor, fn) ->
+    cursor = editor.getLastCursor()
+    line = editor.lineTextForBufferRow cursor.getBufferRow()
+    fn line, cursor.getBufferColumn()
+
   gotoSymbol: ->
     @withCurrentContext ({editor, mod}) =>
-      words.withWord editor, (word, range) =>
-        @ink.goto.goto client.rpc("methods", {word: word, mod: mod})
+      @withLine editor, (line, cursor) =>
+        client.rpc("methods", {line, cursor, mod}).then (result) =>
+          @ink.goto.goto result
 
   toggleDocs: ->
     @withCurrentContext ({editor, mod}) =>
-      words.withWord editor, (word, range) =>
-        client.rpc("docs", {word: word, mod: mod}) => # see #144
+      @withLine editor, (line, cursor) =>
+        client.rpc("docs", {line, cursor, mod}) => # see #144
 
   showError: (r, lines) ->
     @errorLines?.lights.destroy()
