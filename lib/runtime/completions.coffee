@@ -10,7 +10,8 @@ evaluation = require './evaluation'
 {completions, cacheCompletions} = client.import ['completions', 'cacheCompletions']
 
 module.exports =
-  selector: '.source.julia'
+  scopeSelector: '.source.julia'
+  textEditorSelectors: new Set(['ink-console atom-text-editor', 'atom-pane > .item-views > atom-text-editor'])
   filterSuggestions: true
   excludeLowerPriority: false
 
