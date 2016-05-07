@@ -11,7 +11,7 @@ evaluation = require './evaluation'
 
 module.exports =
   scopeSelector: '.source.julia'
-  textEditorSelectors: new Set(['ink-console atom-text-editor', 'atom-pane > .item-views > atom-text-editor'])
+  textEditorSelector: 'ink-console atom-text-editor, atom-pane > .item-views > atom-text-editor'
   filterSuggestions: true
   excludeLowerPriority: false
 

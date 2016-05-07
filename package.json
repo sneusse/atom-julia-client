@@ -33,7 +33,7 @@
   "providedServices": {
     "autocomplete.provider": {
       "versions": {
-        "2.0.0": "completions"
+        "3.0.0": "completions"
       }
     },
     "julia-client": {
