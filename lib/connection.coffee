@@ -20,3 +20,8 @@ module.exports =
     if not @client.isActive()
       @tcp.listen (port) => @process.start port
       time "Julia Boot", @client.rpc 'ping'
+
+  listenOnly: ->
+    if not @client.isActive()
+      @tcp.listenOnly()
+      time "Julia Boot", @client.rpc 'ping'

@@ -42,5 +42,10 @@
         "0.1.0": "provideClient"
       }
     }
+  },
+  "apmInstallSource": {
+    "type": "git",
+    "source": "https://github.com/sneusse/atom-julia-client",
+    "sha": "0e08e99368d278ac7418df6d00ca5dfa2efe0f70"
   }
 }

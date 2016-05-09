@@ -26,6 +26,11 @@ config =
         default: 2
         enum: [0, 1, 2, 3]
     order: 3
+  juliaClientListenPort:
+    type: 'integer'
+    default: 60060
+    description: 'Can be used to attach a already running julia instance'
+    order: 3.5
   notifications:
     type: 'boolean'
     default: true

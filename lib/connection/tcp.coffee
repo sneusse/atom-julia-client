@@ -42,3 +42,14 @@ module.exports =
     @server.listen 0, '127.0.0.1', =>
       @port = @server.address().port
       f?(@port)
+
+  listenOnly: ->
+    p = atom.config.get("julia-client.juliaClientListenPort")
+    @server = net.createServer (c) => @handle c
+    @server.listen p, '127.0.0.1', =>
+      client.booting()
+      @port = @server.address().port
+      atom.notifications.addInfo "listening on port " + @port.toString()
+      this.next().then (conn) =>
+        atom.notifications.addInfo "Connected!"
+        client.connected conn
