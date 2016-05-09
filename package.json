@@ -1,5 +1,5 @@
 {
-  "name": "julia-client-sn",
+  "name": "julia-client",
   "main": "./lib/julia-client",
   "version": "0.4.3",
   "description": "Julia Evaluation",
