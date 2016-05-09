@@ -1,10 +1,10 @@
 {
-  "name": "julia-client",
+  "name": "julia-client-sn",
   "main": "./lib/julia-client",
   "version": "0.4.3",
   "description": "Julia Evaluation",
   "keywords": [],
-  "repository": "https://github.com/JunoLab/atom-julia-client",
+  "repository": "https://github.com/sneusse/atom-julia-client",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
