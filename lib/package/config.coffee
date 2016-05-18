@@ -28,7 +28,7 @@ config =
     order: 3
   juliaClientListenPort:
     type: 'integer'
-    default: 60060
+    default: 6006
     description: 'Can be used to attach a already running julia instance'
     order: 3.5
   notifications:

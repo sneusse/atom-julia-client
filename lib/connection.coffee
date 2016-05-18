@@ -25,3 +25,11 @@ module.exports =
     if not @client.isActive()
       @tcp.listenOnly()
       time "Julia Boot", @client.rpc 'ping'
+
+  connectTo: ->
+    if not @client.isActive()
+      @tcp.connectTo()
+      time "Julia Boot", @client.rpc 'ping'
+
+  disconnectFrom: ->
+    @tcp.disconnectFrom()

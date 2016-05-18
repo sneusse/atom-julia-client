@@ -11,6 +11,8 @@ module.exports =
     disrequireClient = (a, f) -> juno.connection.client.disrequire a, f
     boot = -> juno.connection.boot()
     listenOnly = -> juno.connection.listenOnly()
+    connectTo = -> juno.connection.connectTo()
+    disconnectFrom = -> juno.connection.disconnectFrom()
 
     cancelComplete = (e) ->
       atom.commands.dispatch(e.currentTarget, 'autocomplete-plus:cancel')
@@ -66,6 +68,8 @@ module.exports =
       'julia-client:open-a-repl': -> juno.connection.terminal.repl()
       'julia-client:start-julia': -> disrequireClient 'boot Julia', -> boot()
       'julia-client:start-server': -> disrequireClient 'boot Julia', -> listenOnly()
+      'julia-client:connect-to': -> connectTo()
+      'julia-client:disconnect-from': -> disconnectFrom()
       'julia-client:kill-julia': => requireClient 'kill Julia', -> juno.connection.client.kill()
       'julia-client:interrupt-julia': => requireClient 'interrupt Julia', -> juno.connection.client.interrupt()
       'julia-client:open-console': => @withInk -> juno.runtime.console.open()
