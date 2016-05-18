@@ -25,7 +25,6 @@ module.exports =
 
   handle: (sock) ->
     return sock.end() unless @listeners.length > 0
-    atom.notifications.addInfo "b!" + sock.toString()
 
     sock.on 'end', -> client.disconnected()
     sock.on 'error', (e) =>
